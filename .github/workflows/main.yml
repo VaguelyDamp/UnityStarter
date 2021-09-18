@@ -1,6 +1,5 @@
-name: Actions 😎
-
-on: [push, pull_request]
+name: Unity Build Actions
+on: [pull_request]
 
 jobs:
   build:
