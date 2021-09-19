@@ -45,4 +45,22 @@ public class UI_Meters : MonoBehaviour
         Undo.RegisterCreatedObjectUndo(bar, "Create " + bar.name);
         Selection.activeObject = bar;
     }
+
+    [MenuItem("GameObject/UI/Meters/Chunk Meter")]
+    public static void CreateChunkMeter()
+    {
+        GameObject bar = new GameObject("Chunk Meter");
+        bar.transform.parent = Selection.activeTransform;
+
+        ChunkMeter meter = bar.AddComponent<ChunkMeter>();
+        meter.fullColor = Color.white;
+        meter.lowColor = Color.yellow;
+        meter.warningColor = Color.red;
+        meter.chunkSprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Sprites/Branding/dampboi.png", typeof(Sprite));
+        meter.chunkSize = new Vector3(100, 100, 1);
+        meter.chunkSpacing = new Vector3(100, 100, 1);
+
+        Undo.RegisterCreatedObjectUndo(bar, "Create " + bar.name);
+        Selection.activeObject = bar;
+    }
 }

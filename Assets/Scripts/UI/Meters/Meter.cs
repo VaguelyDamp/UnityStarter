@@ -24,6 +24,7 @@ public enum RoundingMethod {
     None,
     NearestInt,
     NearestHalf,
+    NearestQuarter,
 }
 
 public abstract class Meter : MonoBehaviour
@@ -61,6 +62,9 @@ public abstract class Meter : MonoBehaviour
                     break;
                 case RoundingMethod.NearestHalf:
                     curVal = Mathf.Round(curVal * 2.0f) / 2.0f;
+                    break;
+                case RoundingMethod.NearestQuarter:
+                    curVal = Mathf.Round(curVal * 4.0f) / 4.0f;
                     break;
                 default:
                     break;
