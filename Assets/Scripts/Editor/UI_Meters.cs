@@ -35,7 +35,7 @@ public class UI_Meters : MonoBehaviour
         image.sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Sprites/UI/UI_BasicBox.png", typeof(Sprite));
         image.type = Image.Type.Filled;
         image.fillMethod = Image.FillMethod.Horizontal;
-        image.fillOrigin = 1;
+        image.fillOrigin = 0;
 
         FillMeter fill = bar.AddComponent<FillMeter>();
         fill.bar = image;
