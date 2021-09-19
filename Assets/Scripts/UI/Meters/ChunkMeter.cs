@@ -13,10 +13,6 @@ public class ChunkMeter : Meter
     public Image.FillMethod partialChunkFillMethod = Image.FillMethod.Horizontal;
     public int partialChunkFillOrigin = 0;
 
-    public Color fullColor;
-    public Color lowColor;
-    public Color warningColor;
-
     public Sprite chunkSprite;
     public Vector3 chunkSize;
     public Vector3 chunkSpacing;
@@ -38,13 +34,8 @@ public class ChunkMeter : Meter
         int barsFilled = (int) barFill;
         float partialFill = doPartial ? (barFill - barsFilled) : 0.0f;
 
-        Color setToColor = fullColor;
-        if(barsFilled < 3) setToColor = warningColor;
-        else if(barsFilled < chunks.Length - 1) setToColor = lowColor;
-
         for(int i = 0; i < chunks.Length; ++i)
         {
-            chunks[i].color = setToColor;
             chunks[i].enabled = i <= barsFilled;
 
             if(i == barsFilled) 

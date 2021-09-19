@@ -53,12 +53,9 @@ public class UI_Meters : MonoBehaviour
         bar.transform.parent = Selection.activeTransform;
 
         ChunkMeter meter = bar.AddComponent<ChunkMeter>();
-        meter.fullColor = Color.white;
-        meter.lowColor = Color.yellow;
-        meter.warningColor = Color.red;
         meter.chunkSprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Sprites/Branding/dampboi.png", typeof(Sprite));
-        meter.chunkSize = new Vector3(100, 100, 1);
-        meter.chunkSpacing = new Vector3(100, 100, 1);
+        meter.chunkSize = new Vector3(1, 1, 1);
+        meter.chunkSpacing = new Vector3(80, 0, 1);
 
         Undo.RegisterCreatedObjectUndo(bar, "Create " + bar.name);
         Selection.activeObject = bar;

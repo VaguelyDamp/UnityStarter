@@ -552,9 +552,6 @@ MonoBehaviour:
   doPartial: 1
   partialChunkFillMethod: 4
   partialChunkFillOrigin: 2
-  fullColor: {r: 1, g: 1, b: 1, a: 1}
-  lowColor: {r: 1, g: 1, b: 1, a: 1}
-  warningColor: {r: 1, g: 1, b: 1, a: 1}
   chunkSprite: {fileID: 21300000, guid: cd7b38e6425ef9d4191a00e181ec312f, type: 3}
   chunkSize: {x: 1, y: 1, z: 1}
   chunkSpacing: {x: 80, y: 0, z: 0}
