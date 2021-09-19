@@ -118,10 +118,49 @@ public class UI_Meters : MonoBehaviour
         GameObject lowPoint = new GameObject("LowPoint");
         lowPoint.transform.parent = guage.transform;
         lowPoint.transform.localPosition = Vector3.zero;
+        lowPoint.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
 
         GameObject highPoint = new GameObject("HighPoint");
         highPoint.transform.parent = guage.transform;
         highPoint.transform.localPosition = new Vector3(100, 0, 0);
+        highPoint.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+
+        MoveMeter meter = guage.AddComponent<MoveMeter>();
+        meter.needle = needle;
+        meter.lowPoint = lowPoint.transform;
+        meter.highPoint = highPoint.transform;
+
+        Undo.RegisterCreatedObjectUndo(guage, "Create " + guage.name);
+        Selection.activeObject = guage;
+    }
+
+    [MenuItem("GameObject/UI/Meters/Scale Meter")]
+    public static void CreateScaleMeter()
+    {
+        GameObject guage = new GameObject("Scale Meter");
+        guage.transform.parent = Selection.activeTransform;
+
+        GameObject needle = new GameObject("Needle");
+        needle.transform.parent = guage.transform;
+        needle.transform.localPosition = Vector3.zero;
+
+        GameObject needleSprite = new GameObject("NeedleSprite");
+        needleSprite.transform.parent = needle.transform;
+        needleSprite.transform.localPosition = Vector3.zero;
+        needleSprite.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+        
+        Image image = needleSprite.AddComponent<Image>();
+        image.sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Sprites/Branding/dampboi.png", typeof(Sprite));
+
+        GameObject lowPoint = new GameObject("LowPoint");
+        lowPoint.transform.parent = guage.transform;
+        lowPoint.transform.localPosition = Vector3.zero;
+        lowPoint.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+
+        GameObject highPoint = new GameObject("HighPoint");
+        highPoint.transform.parent = guage.transform;
+        highPoint.transform.localPosition = Vector3.zero;
+        highPoint.transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
 
         MoveMeter meter = guage.AddComponent<MoveMeter>();
         meter.needle = needle;

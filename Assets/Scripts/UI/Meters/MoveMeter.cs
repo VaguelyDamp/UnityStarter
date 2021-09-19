@@ -11,7 +11,8 @@ public class MoveMeter : Meter
 
     protected override void UpdateValue()
     {
-        needle.transform.position = Vector3.Lerp(lowPoint.position, highPoint.position, normalizedVal);
+        needle.transform.localPosition = Vector3.Lerp(lowPoint.localPosition, highPoint.localPosition, normalizedVal);
         needle.transform.rotation = Quaternion.Lerp(lowPoint.rotation, highPoint.rotation, normalizedVal);
+        needle.transform.localScale = Vector3.Lerp(lowPoint.localScale, highPoint.localScale, normalizedVal);
     }
 }
