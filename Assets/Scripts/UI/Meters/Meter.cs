@@ -16,7 +16,9 @@ public enum ValueChannel {
     Air,
     Boost,
     Cooldown,
-    Progress
+    Progress,
+    Speed,
+    Fuel,
 }
 
 // Supported rounding types for meters

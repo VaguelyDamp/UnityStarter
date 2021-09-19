@@ -60,4 +60,75 @@ public class UI_Meters : MonoBehaviour
         Undo.RegisterCreatedObjectUndo(bar, "Create " + bar.name);
         Selection.activeObject = bar;
     }
+
+    [MenuItem("GameObject/UI/Meters/Circular Needle Guage")]
+    public static void CreateCircularGuage()
+    {
+        GameObject guage = new GameObject("Circular Needle Guage");
+        guage.transform.parent = Selection.activeTransform;
+
+        GameObject needle = new GameObject("Needle");
+        needle.transform.parent = guage.transform;
+        needle.transform.localPosition = Vector3.zero;
+
+        GameObject needleSprite = new GameObject("NeedleSprite");
+        needleSprite.transform.parent = needle.transform;
+        needleSprite.transform.localPosition = new Vector3(0, 40, 0);
+        
+        Image image = needleSprite.AddComponent<Image>();
+        image.sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Sprites/UI/UI_PointerThin.png", typeof(Sprite));
+
+        GameObject lowPoint = new GameObject("LowPoint");
+        lowPoint.transform.parent = guage.transform;
+        lowPoint.transform.localPosition = Vector3.zero;
+        lowPoint.transform.localEulerAngles = new Vector3(0, 0, -90); 
+
+        GameObject highPoint = new GameObject("HighPoint");
+        highPoint.transform.parent = guage.transform;
+        highPoint.transform.localPosition = Vector3.zero;
+        highPoint.transform.localEulerAngles = new Vector3(0, 0, 90); 
+
+        MoveMeter meter = guage.AddComponent<MoveMeter>();
+        meter.needle = needle;
+        meter.lowPoint = lowPoint.transform;
+        meter.highPoint = highPoint.transform;
+
+        Undo.RegisterCreatedObjectUndo(guage, "Create " + guage.name);
+        Selection.activeObject = guage;
+    }
+
+    [MenuItem("GameObject/UI/Meters/Linear Needle Guage")]
+    public static void CreateLinearGuage()
+    {
+        GameObject guage = new GameObject("Linear Needle Guage");
+        guage.transform.parent = Selection.activeTransform;
+
+        GameObject needle = new GameObject("Needle");
+        needle.transform.parent = guage.transform;
+        needle.transform.localPosition = Vector3.zero;
+
+        GameObject needleSprite = new GameObject("NeedleSprite");
+        needleSprite.transform.parent = needle.transform;
+        needleSprite.transform.localPosition = Vector3.zero;
+        needleSprite.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+        
+        Image image = needleSprite.AddComponent<Image>();
+        image.sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Sprites/UI/UI_Pointer.png", typeof(Sprite));
+
+        GameObject lowPoint = new GameObject("LowPoint");
+        lowPoint.transform.parent = guage.transform;
+        lowPoint.transform.localPosition = Vector3.zero;
+
+        GameObject highPoint = new GameObject("HighPoint");
+        highPoint.transform.parent = guage.transform;
+        highPoint.transform.localPosition = new Vector3(100, 0, 0);
+
+        MoveMeter meter = guage.AddComponent<MoveMeter>();
+        meter.needle = needle;
+        meter.lowPoint = lowPoint.transform;
+        meter.highPoint = highPoint.transform;
+
+        Undo.RegisterCreatedObjectUndo(guage, "Create " + guage.name);
+        Selection.activeObject = guage;
+    }
 }
