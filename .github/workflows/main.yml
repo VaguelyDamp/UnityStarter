@@ -60,10 +60,11 @@ jobs:
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
-          projectPath: ${{ matrix.projectPath }}
+          targetPlatform: ${{ matrix.targetPlatforms }}
+          unityVersion: ${{ matrix.unity_versions }}
 
       # Output
       - uses: actions/upload-artifact@v2
         with:
-          name: Build-${{ matrix.targetPlatform }}
-          path: build/${{ matrix.targetPlatform }}
+          name: Build-${{ matrix.targetPlatforms }}
+          path: build/${{ matrix.targetPlatforms }}
