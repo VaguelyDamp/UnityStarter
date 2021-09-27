@@ -51,6 +51,7 @@ public class UI_Meters : MonoBehaviour
     {
         GameObject bar = new GameObject("Chunk Meter");
         bar.transform.parent = Selection.activeTransform;
+        bar.AddComponent<Image>().enabled = false;
 
         ChunkMeter meter = bar.AddComponent<ChunkMeter>();
         meter.chunkSprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Sprites/Branding/dampboi.png", typeof(Sprite));
@@ -66,6 +67,7 @@ public class UI_Meters : MonoBehaviour
     {
         GameObject guage = new GameObject("Circular Needle Guage");
         guage.transform.parent = Selection.activeTransform;
+        guage.AddComponent<Image>().enabled = false;
 
         GameObject needle = new GameObject("Needle");
         needle.transform.parent = guage.transform;
@@ -102,6 +104,7 @@ public class UI_Meters : MonoBehaviour
     {
         GameObject guage = new GameObject("Linear Needle Guage");
         guage.transform.parent = Selection.activeTransform;
+        guage.AddComponent<Image>().enabled = false;
 
         GameObject needle = new GameObject("Needle");
         needle.transform.parent = guage.transform;
@@ -139,6 +142,7 @@ public class UI_Meters : MonoBehaviour
     {
         GameObject guage = new GameObject("Scale Meter");
         guage.transform.parent = Selection.activeTransform;
+        guage.AddComponent<Image>().enabled = false;
 
         GameObject needle = new GameObject("Needle");
         needle.transform.parent = guage.transform;
