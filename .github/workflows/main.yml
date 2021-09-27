@@ -1,10 +1,21 @@
-name: Unity Build Actions
+name: PR-Build
 on: [pull_request]
 
 jobs:
   build:
     name: Build the project ✨
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false # stop all parrellel builds if one fails
+      matrix:
+        unity_versions: 
+          - 2020.3.19f1 #LTS build
+        targetPlatforms: 
+          - StandaloneWindows64
+          - StandaloneOSX
+          - StandaloneLinux64
+          - WebGL
+
     steps:
       # Checkout (without LFS)
       - name: Checkout repository
@@ -49,10 +60,10 @@ jobs:
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
-          targetPlatform: WebGL
+          projectPath: ${{ matrix.projectPath }}
 
       # Output
       - uses: actions/upload-artifact@v2
         with:
-          name: Build
-          path: build
+          name: Build-${{ matrix.targetPlatform }}
+          path: build/${{ matrix.targetPlatform }}
