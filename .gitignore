@@ -9,9 +9,10 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
-[Aa]ssets/Plugins/FMOD/Cache/
 [Aa]ssets/Plugins/FMOD/Resources/FMODStudioSettings.asset
+[Aa]ssets/Plugins/FMOD/Resources/FMODStudioSettings.asset.meta
 # Asset meta data should only be ignored when the corresponding asset is also ignored
+
 !/[Aa]ssets/**/*.meta
 
 ### FMOD Unity Integration ###
