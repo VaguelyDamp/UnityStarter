@@ -4,7 +4,7 @@ on: [pull_request]
 jobs:
   build:
     name: Build the project ✨
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false # stop all parrellel builds if one fails
       matrix:
