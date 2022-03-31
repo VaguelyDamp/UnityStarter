@@ -9,7 +9,7 @@ jobs:
       fail-fast: false # stop all parrellel builds if one fails
       matrix:
         unity_versions: 
-          - 2020.3.19f1 #LTS build
+          - 2020.3.32f1 #LTS build
         targetPlatforms: 
           - StandaloneWindows64
           - StandaloneOSX
