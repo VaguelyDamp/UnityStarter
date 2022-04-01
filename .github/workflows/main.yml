@@ -9,7 +9,7 @@ jobs:
       fail-fast: false # stop all parrellel builds if one fails
       matrix:
         unity_versions: 
-          - 2020.3.19f1 #LTS build
+          - auto
         targetPlatforms: 
           - StandaloneWindows64
           - StandaloneOSX
@@ -46,14 +46,6 @@ jobs:
           restore-keys: |
             Library-
 
-      # Test
-      - name: Run tests
-        uses: game-ci/unity-test-runner@v2
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-        with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v2
@@ -68,3 +60,11 @@ jobs:
         with:
           name: Build-${{ matrix.targetPlatforms }}
           path: build/${{ matrix.targetPlatforms }}
+
+      # Test
+      - name: Run tests
+        uses: game-ci/unity-test-runner@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
